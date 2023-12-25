@@ -1,0 +1,11 @@
+groups:
+- name: alert_rules_1
+  rules:
+  - alert: TestAlertFoo
+    expr: up{} < 0
+    for: 5m
+    labels:
+      alertId: qNeWp15FlQWjYfqGOIytPG8ttj8pdXMGXDlquueJGBE=
+      severity: warning
+    annotations:
+      summary: This is a testing alert.

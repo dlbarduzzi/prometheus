@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus
+    restart: always
+    volumes:
+      - ./config:/etc/prometheus
+      - ./alerts:/etc/prometheus/alerts
+      - prometheus_data:/prometheus
+    ports:
+      - 9090:9090
+    command:
+      - --config.file
+      - /etc/prometheus/prometheus.yml
+      - --web.enable-lifecycle
+
+volumes:
+  prometheus_data:
+    name: prometheus_data
